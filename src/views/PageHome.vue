@@ -21,6 +21,10 @@
         posts: sourceData.posts,
         users: sourceData.users
       }
+    },
+
+    created() {
+      console.table('sourceData', sourceData)
     }
   }
 </script>
