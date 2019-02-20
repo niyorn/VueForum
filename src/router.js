@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/PageHome'
 import ThreadShow from '@/views/PageThreadShow'
+import Forum from '@/views/PageForum'
 import NotFoundPage from '@/views/NotFound'
 
 Vue.use(Router)
@@ -20,6 +21,13 @@ export default new Router({
       path: '/thread/:id',
       name: 'ThreadShow',
       component: ThreadShow,
+      props: true
+    },
+
+    {
+      path: '/forum/:id',
+      name: 'Forum',
+      component: Forum,
       props: true
     },
 
