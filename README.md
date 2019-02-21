@@ -46,3 +46,26 @@ localhost:8080
 
 ##### Props and computed properties
 
+### Week 2
+- [x] Tidy up messy components
+- [x] Learn about two way binding and at this to the project
+- [x] Add discussion component
+- [x] Learn how to communicate between components through the vm.$emit API
+- [x] Learn about object Destructuring and at this to the project
+- [x] Transform date to be human friendly
+- [x] Learn about Base and Global Components
+- [x] Add Categories component
+
+
+#### Result
+![Demo of the project in the second week](./readme_assets/week2/week2-demo.gif)
+
+#### Date result
+date before
+
+![Date before](./readme_assets/week2/date-before.JPG)
+
+date after
+
+
+![Date after](./readme_assets/week2/date-after.JPG)
