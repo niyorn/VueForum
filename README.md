@@ -35,7 +35,7 @@ localhost:8080
 - [x] Learn how to handle not found pages
 
 #### Result
-![Demo of the project in the first week](./readme_assets\week1\week1-demo.gif)
+![Demo of the project in the first week](./readme_assets/week1/week1-demo.gif)
 
 
 #### Notes
