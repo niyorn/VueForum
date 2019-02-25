@@ -214,3 +214,158 @@ date after
 
 
 ![Date after](./readme_assets/week2/date-after.JPG)
+
+
+#### Notes
+
+##### Object Destructuring
+*ES6 In Depth: Destructuring - By Nick Fitzgerald, Jason Orendorff - from: https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/*
+
+Destructuring assignment allows you to assign the properties of an array or object to variables using syntax that looks similar to array or object literals. 
+
+Destructuring on objects lets you bind variables to different properties of an object. You specify the property being bound, followed by the variable you are binding its value to.
+
+```javascript
+var { foo, bar } = { foo: "lorem", bar: "ipsum" };
+console.log(foo);
+// "lorem"
+console.log(bar);
+// "ipsum"
+```
+
+##### Object.values()
+
+`Object.values()` returns an array whose elements are the enumerable property values found on the object. The ordering of the properties is the same as that given by looping over the property values of the object manually.
+
+```javascript
+const object1 = {
+  a: 'somestring',
+  b: 42,
+  c: false
+};
+
+const test = Object.values(object1)
+
+console.log(test);
+// expected output: Array ["somestring", 42, false]
+```
+
+
+##### Vue emit
+
+The child component sometimes wants to communicate to the parent component, you can achieve this by using the vue.$emit api.
+
+**Usage:**
+
+When clicking on the button the child child will *emit* a *welcome* event to every parent components.
+```html
+ <button v-on:click="$emit('welcome')">
+      Click me to be welcomed
+</button>
+```
+
+The parent component can than listen to this event and create a logic from this event.
+
+*The welcome event will trigger the `sayHi` function*
+```html
+<div>
+  <welcome-button @welcome="sayHi"></welcome-button>
+</div>
+```
+
+```javascript
+methods: {
+    sayHi: function () {
+      alert('Hi!')
+    }
+  }
+```
+
+##### Two-way binding
+*source: Exploring Vue.js: Reactive Two-Way Data Binding-Anthony Gore-https://medium.com/js-dojo/exploring-vue-js-reactive-two-way-data-binding-da533d0c4554 *
+
+One of the core features of Vue.js is it’s reactive data binding system. In simple terms: it keeps your data (i.e. your Javascript variables, arrays etc) in sync with your DOM without you having to do anything.
+
+```html
+<div id="app">
+  <span>{{message}}</span>
+</div>
+
+<script type="text/javascript">
+  var message = 'Vue.js is rad';
+  new Vue({ el: '#app', data: { message } });
+</script>
+
+// Changing the value of message in the JS to something else 
+// will be reflected automatically in the DOM. Nice.
+```
+
+Okay, so that’s one-way data binding i.e. binding a JS variable to the DOM. Two-way binding is when data is also bound from the DOM back to JS.
+
+For example, what if we could change the value of message in the DOM via an input? No problemo. Just add an input to the document with an attribute v-model and assign it our message property i.e.:
+
+```html
+<div id="app">
+  <span>{{message}}</span><br/>
+  <input v-model="message">
+</div>
+
+<script type="text/javascript">
+  var message = 'Vue.js is rad';
+  new Vue({ el: '#app', data: { message } });
+</script>
+```
+
+That’s it. Nothing else. Now, if we type anything into our input, our JS variable is updated with the change, which in turn updates our span. Super nice.
+
+#### Component registration
+Components are reusable Vue instances with a name and can be reused as many times as you want.
+
+##### Global registration
+
+When you're using a component a lot of times it is handy to register this globally so that you can use this component in all vue instances.
+
+```javascript
+Vue.component('component-a', { /* ... */ })
+Vue.component('component-b', { /* ... */ })
+Vue.component('component-c', { /* ... */ })
+
+new Vue({ el: '#app' })
+```
+
+```html
+<div id="app">
+  <component-a></component-a>
+  <component-b></component-b>
+  <component-c></component-c>
+</div>
+```
+
+
+##### Local registration
+Global registration often isn’t ideal. For example: globally registering all components means that even if you stop using a component, it could still be included in your final build. This unnecessarily increases the amount of JavaScript your users have to download.
+
+In these cases, you can define your components as plain JavaScript objects:
+
+```javascript
+var ComponentA = { /* ... */ }
+var ComponentB = { /* ... */ }
+var ComponentC = { /* ... */ }
+```
+
+```javascript
+new Vue({
+  el: '#app',
+  components: {
+    'component-a': ComponentA,
+    'component-b': ComponentB
+  }
+})
+```
+
+
+
+
+
+
+
