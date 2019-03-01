@@ -30,7 +30,7 @@
 </template>
 
 <script>
-    import sourceData from '@/data.json'
+   
 
 
     export default {
@@ -48,7 +48,7 @@
             },
 
             user() {
-                return sourceData.users[this.thread.userId]
+                return  this.$store.state.users[this.thread.userId]
             }
         }
     }

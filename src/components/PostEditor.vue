@@ -10,7 +10,7 @@
 </template>
 
 <script>
-    import sourceData from '@/data.json'
+   
 
     export default {
         props: {
@@ -21,7 +21,7 @@
 
         data() {
             return {                
-                thread: sourceData.threads[this.threadId],
+                thread:  this.$store.state.threads[this.threadId],
                 text: ''
             }
         },
