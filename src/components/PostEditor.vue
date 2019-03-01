@@ -32,13 +32,15 @@
                     text: this.text,
                     publishedAt: Math.floor(Date.now() / 1000),
                     threadId: this.threadId,
-                    userId: "L664y3qZSubDbT1R6npC0EEybJ73",
-                    '.key': postId
+                    userId: "L664y3qZSubDbT1R6npC0EEybJ73"
                 }
 
                 this.$emit('save', {
                     post
                 })
+
+                this.$store.dispatch('createPost', post)
+
 
                 this.text = ''
             }
