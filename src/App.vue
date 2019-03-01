@@ -1,15 +1,24 @@
 <template>
   <div id="app">
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">Detail</router-link>
-    </div> -->
-
+    <TheNavbar/>
     <div class="container">
       <router-view/>
     </div>
   </div>
 </template>
+
+
+<script>
+import TheNavbar from '@/components/TheNavbar'
+
+export default {
+  components: {
+    TheNavbar
+  }
+}
+</script>
+
+
 
 <style lang="scss">
 @import "assets/css/style.css";
