@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     ...sourceData,
-    authId: 'FsCDAk9w8NeXEceLV87arpsXjnQ2'
+    authId: 'VXjpr2WHa8Ux4Bnggym8QFLdv5C3'
   },
 
 
