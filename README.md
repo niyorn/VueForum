@@ -410,8 +410,30 @@ new Vue({
 ```
 
 
+### Week 3
+- [x] Migrate old State to Vuex
+- [x] Creating post using Vuex
+- [x] Add navigation bar
+- [x] Grab authenticated user
+- [x] Add user profile page
+- [x] Add utility functionality
+- [x] Add profile editor component
+- [x] Add functionality to update the profile
+- [x] Learn about share page component
+- [x] Fix bug where post and authenticated user doesn't match
+
+#### Result
+![Demo of the project in the third week](./readme_assets/week3/profile-demo.gif)
 
 
+#### Vuex
 
+##### Actions
 
+##### Mutation
 
+##### State
+
+##### Getters
+
+##### MapGetters
