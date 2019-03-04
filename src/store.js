@@ -5,7 +5,17 @@ import sourceData from '@/data.json'
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  state: sourceData,
+  state: {
+    ...sourceData,
+    authId: 'FsCDAk9w8NeXEceLV87arpsXjnQ2'
+  },
+
+
+  getters: {
+    authUser(state) {
+      return state.users[state.authId]
+    }
+  },
 
 
   mutations: {
