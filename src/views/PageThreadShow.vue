@@ -28,19 +28,16 @@
             PostEditor
         },
 
-        data() {
-            return {
-                thread:  this.$store.state.threads[this.id],
-                newPostText: ''
-            }
-        },
-
         computed: {
             posts() {
                 const postIds = Object.values(this.thread.posts)
                 const filter = Object.values( this.$store.state.posts)
                     .filter(post => postIds.includes(post['.key']))
                 return filter
+            },
+
+            thread() {
+                return this.$store.state.threads[this.id]
             }
         }
     }

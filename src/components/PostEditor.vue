@@ -30,10 +30,7 @@
                 const postId = "Placeholder-PostId" + Math.random(100)
                 const post = {
                     text: this.text,
-                    publishedAt: Math.floor(Date.now() / 1000),
-                    threadId: this.threadId,
-                    userId: "L664y3qZSubDbT1R6npC0EEybJ73"
-                }
+                    threadId: this.threadId,                }
 
                 this.$emit('save', {
                     post
