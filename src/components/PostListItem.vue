@@ -26,7 +26,7 @@
 
 
 <script>
-   
+   import {countObjectProperties} from '@/utils/index'
 
 
     export default {
@@ -44,7 +44,7 @@
             },
 
             userPostsCount() {
-                return Object.keys(this.user.posts).length
+                return countObjectProperties(this.user.posts)
             }
         },
 
