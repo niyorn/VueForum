@@ -516,6 +516,21 @@ new Vue({ el: '#app' })
 </div>
 ```
 
+In our example: We've created a Date component that is used in a lot of components. So it's handy to register this globally since it's convenient. [code](https://github.com/niyorn/VueForum/blob/master/src/main.js#L9)
+```javascript
+//In main.js
+import AppDate from '@/components/AppDate'
+Vue.component('AppDate', AppDate)
+```
+
+After that, you're able to use the `AppDate` component everywhere you want. [example](https://github.com/niyorn/VueForum/blob/master/src/components/PostListItem.vue#L22)
+
+```html
+<template>
+  <AppDate/>
+</template>
+```
+
 
 ##### Local registration
 Global registration often isn’t ideal. For example: globally registering all components means that even if you stop using a component, it could still be included in your final build. This unnecessarily increases the amount of JavaScript your users have to download.
