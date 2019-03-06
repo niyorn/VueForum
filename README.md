@@ -191,6 +191,14 @@ Vue Router is the official router for Vue.js. It deeply integrates with Vue.js c
 <a href="home">Home</a>
 ```
 
+In our example: We're creating a link that redirect to `home` (the homepage). [code](https://github.com/niyorn/VueForum/blob/master/src/views/NotFound.vue#L4)
+```html
+<router-link :to="{name:'Home'}">
+Home
+</router-link>
+```
+
+
 ##### Router view
 The `<router-view>` component is a functional component that renders the matched component for the given path.
 
@@ -198,6 +206,19 @@ The `<router-view>` component is a functional component that renders the matched
 ```html
 <router-view/>
 ```
+
+In our example: we're rendering the view in the App component. [code](https://github.com/niyorn/VueForum/blob/master/src/App.vue#L5)
+```html
+<template>
+  <div id="app">
+    <div class="container">
+      <router-view/>
+    </div>
+  </div>
+</template>
+```
+
+
 
 ##### History mode
 The default mode for vue-router is hash mode - it uses the URL hash to simulate a full URL so that the page won't be reloaded when the URL changes.
