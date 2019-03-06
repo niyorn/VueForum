@@ -398,6 +398,16 @@ console.log(test);
 // expected output: Array ["somestring", 42, false]
 ```
 
+In our example: We're getting the categories object from the state. Than wee transform the categories property to categories array. [code](https://github.com/niyorn/VueForum/blob/master/src/views/PageHome.vue#L19)
+
+```javascript
+computed: {
+  categories() {
+    return Object.values( this.$store.state.categories)
+  }
+}
+```
+
 
 ##### Vue emit
 
