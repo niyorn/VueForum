@@ -427,13 +427,107 @@ new Vue({
 
 
 #### Vuex
-
-##### Actions
-
-##### Mutation
+> Vuex is a state management pattern + library for Vue.js applications. It serves as a centralized store for all the components in an application, with rules ensuring that the state can only be mutated in a predictable fashion. It also integrates with Vue's official devtools extension to provide advanced features such as zero-config time-travel debugging and state snapshot export / import. - https://vuex.vuejs.org/
 
 ##### State
+Vuex uses a single state tree - that is, this single object contains all your application level state and serves as the "single source of truth". This also means usually you will have only one store for each application. A single state tree makes it straightforward to locate a specific piece of state, and allows us to easily take snapshots of the current app state for debugging purposes.
 
-##### Getters
+So how do we display state inside the store in our Vue components? Since Vuex stores are reactive, the simplest way to "retrieve" state from it is simply returning some store state from within a computed property:
 
-##### MapGetters
+[code](https://github.com/niyorn/VueForum/blob/master/src/store.js#L8)
+
+first create an state object
+```javascript
+state: {
+    ...sourceData,
+  },
+```
+
+Then retrieve it by using the `this.$store.state`.
+In this case we're retrieving the forums from our state.
+[code](https://github.com/niyorn/VueForum/blob/master/src/components/CategoryListItem.vue#L32)
+```javascript
+    computed: {
+        categoryForums() {
+            return Object.values( this.$store.state.forums)
+            .filter(forum => {
+                return forum.categoryId === this.category['.key']
+            })
+        }
+    }
+```
+
+
+##### Mutation
+The only way to actually change state in a Vuex store is by committing a mutation. Vuex mutations are very similar to events: each mutation has a string type and a handler. The handler function is where we perform actual state modifications, and it will receive the state as the first argument:
+
+```javascript
+const store = new Vuex.Store({
+  state: {
+    count: 1
+  },
+  mutations: {
+    increment (state) {
+      // mutate state
+      state.count++
+    }
+  }
+})
+```
+
+You cannot directly call a mutation handler. Think of it more like event registration: "When a mutation with type increment is triggered, call this handler." To invoke a mutation handler, you need to call `store.commit` with its type:
+```javascript
+store.commit('increment')
+```
+
+In our example: we'll create a new user so with the mutation we'll change te state. *(You can find the code [here](https://github.com/niyorn/VueForum/blob/master/src/store.js#L26))*
+```javascript
+  mutations: {
+    setUser(state, {user, userId}) {
+      Vue.set(state.users, userId, user)
+    }
+  }
+```
+
+And you're able to trigger this mutation by committing it from the action object. [code](https://github.com/niyorn/VueForum/blob/master/src/store.js#L51)
+```javascript
+  actions: {
+    updateUser({commit}, user) {
+      commit('setUser', {userId: user['.key'], user})
+    }
+  }
+``` 
+
+##### Actions
+Actions are similar to mutations, the differences being that:
+
+- Instead of mutating the state, actions commit mutations.
+- Actions can contain arbitrary asynchronous operations.
+
+example:
+```javascript
+const store = new Vuex.Store({
+  state: {
+    count: 0
+  },
+  mutations: {
+    increment (state) {
+      state.count++
+    }
+  },
+  actions: {
+    increment (context) {
+      context.commit('increment')
+    }
+  }
+})
+```
+In practice, we often use ES2015 argument destructuring to simplify the code a bit (especially when we need to call `commit` multiple times):
+
+```javascript
+actions: {
+  increment ({ commit }) {
+    commit('increment')
+  }
+}
+```
