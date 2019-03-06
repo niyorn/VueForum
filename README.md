@@ -476,6 +476,23 @@ For example, what if we could change the value of message in the DOM via an inpu
 
 That’s it. Nothing else. Now, if we type anything into our input, our JS variable is updated with the change, which in turn updates our span. Super nice.
 
+In our example: We're using the two-way binding to get the user input for the post in realtime. [code](https://github.com/niyorn/VueForum/blob/master/src/components/PostEditor.vue#L3)
+```html
+<template>
+  <textarea class="form-input" name="" cols="30" rows="10" v-model="text">
+  </textarea>
+</template>
+```
+
+When the user is type the data `text` will change automatically. [code](https://github.com/niyorn/VueForum/blob/master/src/components/PostEditor.vue#L22)
+```javascript
+data() {
+    return {                
+        text: ''
+    }
+}
+```
+
 #### Component registration
 Components are reusable Vue instances with a name and can be reused as many times as you want.
 
