@@ -553,6 +553,31 @@ new Vue({
 })
 ```
 
+In our example: We've created a ProfileCard component, thereafter we want to use this component in the PageProfile component. We can use the ProfileCard by first importing it. [code](https://github.com/niyorn/VueForum/blob/master/src/views/PageProfile.vue#L37)
+
+```javascript
+//in PageProfile.vue
+import UserProfileCard from '@/components/UserProfileCard'
+```
+
+Than we register this as a component.
+```javascript
+export default {
+    components: {
+        UserProfileCard,
+    }
+}
+```
+
+With this we're able to use the component locally.
+
+```html
+
+<template>
+  <UserProfileCard/>
+</template>
+```
+
 
 ### Week 3
 - [x] Migrate old State to Vuex
