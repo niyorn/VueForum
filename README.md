@@ -246,10 +246,10 @@ You can use props like this
 *(this is in an child component)*
 ```javascript
 props: {
-            post: {
-                required: true,
-                type: Object
-            }
+          post: {
+              required: true,
+              type: Object
+          }
         }
 ```
 
@@ -257,6 +257,22 @@ In the parent components you can pass the the data to the props like this:
 
 ```html
     <PostListItem :post="post"/>
+```
+
+In our example: we're creating the PostListItem by accepting post as an object. [code](https://github.com/niyorn/VueForum/blob/master/src/components/PostListItem.vue#L33)
+```javascript
+props: {
+    post: {
+        required: true,
+        type: Object
+    }
+},
+```
+
+And we pass this object by  binding this property in the parent component. [code](https://github.com/niyorn/VueForum/blob/master/src/components/PostList.vue#L3)
+```html
+<PostListItem v-for="post in posts" :post="post" :key="post['.key']" />
+
 ```
 
 ##### Computed properties
