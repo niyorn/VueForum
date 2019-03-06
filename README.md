@@ -307,6 +307,26 @@ Computed property make the code more readable, for example:
 </div>
 ```
 
+In our example: we're creating a computed function that counts the number of post the user has. [code](https://github.com/niyorn/VueForum/blob/master/src/components/PostListItem.vue#L46)
+```javascript
+computed: {
+    userPostsCount() {
+        return countObjectProperties(this.user.posts)
+    }
+}
+```
+
+```html
+<template>
+  <div class="post">
+    <div class="user-info">
+        <p class="desktop-only text-small">
+          {{userPostsCount}} posts
+        </p>
+    </div>
+  </div>
+</template>
+```
 
 
 ### Week 2
