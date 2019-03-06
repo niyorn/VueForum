@@ -1,6 +1,8 @@
 # VueForum
 ![Demo of the project in the second week](./readme_assets/demo.gif)
 
+You can find my learning process [Here](./Process.md)
+
 This project serve as a learning purpose to get a better understanding of Vue.js. The course is coming from [Vue School Master Class](https://vueschool.io/courses/the-vuejs-master-class) were we will create a Forum Application from scratch. 
 
 The course covers the fundamentals, like:
