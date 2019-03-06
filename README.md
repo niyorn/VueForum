@@ -371,6 +371,16 @@ console.log(bar);
 // "ipsum"
 ```
 
+In our example: The store Object got different kind of method. Instead of writing `store.commit`, we'll use {commit} as an argument. [code](https://github.com/niyorn/VueForum/blob/master/src/store.js#L56)
+
+```javascript
+actions: {
+    updateUser({commit}, user) {
+      commit('setUser', {userId: user['.key'], user})
+    }
+  }
+```
+
 ##### Object.values()
 
 `Object.values()` returns an array whose elements are the enumerable property values found on the object. The ordering of the properties is the same as that given by looping over the property values of the object manually.
