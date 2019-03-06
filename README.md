@@ -116,6 +116,15 @@ to the following
 </template>
 ```
 
+In our application we're using this to create a scoped styling for our forum [code](https://github.com/niyorn/VueForum/blob/master/src/views/PageForum.vue#L53)
+```css
+<style scoped>
+    .forum-wrapper {
+        width: 100%;
+    }
+</style>
+```
+
 
 ###### CSS Module
 CSS Modules is a popular system for modularizing and composing CSS. vue-loader provides first-class integration with CSS Modules as an alternative for simulated scoped CSS.
@@ -141,6 +150,32 @@ The module attribute instructs Vue Loader to inject the CSS modules locals objec
   </p>
 </template>
 ```
+
+In our application we're creating the module styling for the NotFoundPage.[code](https://github.com/niyorn/VueForum/blob/master/src/views/NotFound.vue#L8)
+```css
+<style module>
+    .centered {
+        text-align: center;
+    }
+
+    .title {
+        font-size: 6em;
+    }
+
+    .text {
+        font-size: 4em;
+        font-weight: lighter;
+    }
+</style>
+```
+
+And using this by adding the `$style.name-of-class` in a html element property. [code](https://github.com/niyorn/VueForum/blob/master/src/views/NotFound.vue#L2)
+```html
+    <div class="col-full" :class="$style.centered">
+        <h1 :class="$style.title">Not Found</h1>
+    </div>
+```
+
 
 ##### Vue Router
 Vue Router is the official router for Vue.js. It deeply integrates with Vue.js core to make building Single Page Applications with Vue.js a breeze.

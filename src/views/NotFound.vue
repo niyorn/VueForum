@@ -5,7 +5,7 @@
     </div>
 </template>
 
-<style lang="scss" module>
+<style module>
     .centered {
         text-align: center;
     }
