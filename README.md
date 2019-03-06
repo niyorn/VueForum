@@ -73,3 +73,54 @@ PageProfile
   |_UserProfileCardEditor
   |_PostList
 ```
+
+## Vuex
+Link to [code](https://github.com/niyorn/VueForum/blob/master/src/store.js)
+
+
+**State**
+```javascript
+  state: {
+    sourceData,
+    authId
+  }
+```
+
+**Mutations**
+```javascript
+  mutations: {
+    setPost(),
+
+    setUser(),
+
+    appendPostToThread(),
+
+    appendPostToUser(),
+  },
+```
+
+**Actions**
+```javascript
+  actions: {
+    createPost()
+    updateUser()
+  }
+```
+
+
+**Getters**
+```javascript 
+  getters: {
+    authUser()
+  }
+```
+
+## Change user
+You're able to change the user by changing `authId` in the state. [code](https://github.com/niyorn/VueForum/blob/master/src/store.js#L10)
+
+```javascript
+  state: {
+    authId: 'VXjpr2WHa8Ux4Bnggym8QFLdv5C3' //Update string if you want to change the user.
+  },
+```
+
